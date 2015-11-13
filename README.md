@@ -1,4 +1,4 @@
-# Rainbow client
+![][rainbow]
 
 Web client interface for [rainbow](https://github.com/bqlabs/rainbow) servers.
 
@@ -38,3 +38,5 @@ electron-packager electron Rainbow --platform=linux --arch=x64 --version=0.28.2
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+[rainbow]: doc/images/rainbow.png
