@@ -1,4 +1,4 @@
-<div data-ng-controller="LandingCtrl as landing">
+<div data-ng-controller="LandingCtrl as landing" class="landing-view">
   <button type="button" name="button" data-ng-click="landing.refreshServices()">Refresh services</button>
   <h2>Servidores</h2>
   <div class="" ng-repeat="(key, service) in landing.services" ng-if="landing.showService(service)">
@@ -9,15 +9,12 @@
   <h2>Functions</h2>
   <div class="functions" ng-repeat="function in landing.functions">
     <hr>
-    <p>{{function.name}}</p>
+    <h3>Function Name:{{function.name}}</h3>
     <hr>
     <div class="args" ng-repeat="(arg, content) in function.args">
       <label for="name">{{arg}}</label>
       <p>type:{{content.type}}</p>
       <p>value:{{content.value}}</p>
-      <!-- <input data-ng-if="content.type === 'Number'" type="number" name="name" ng-model="content.value">
-      <input data-ng-if="content.type === 'String'" type="text" name="name" ng-model="content.value">
-      <input data-ng-if="content.type === 'Boolean'" type="checkbox" name="name" ng-model="content.value"> -->
       <div data-ng-include="'views/methodsArguments.html'"></div>
     </div>
     <button type="button" name="button" ng-click="landing.executeFunction(function.name, function.args)">execute</button>
