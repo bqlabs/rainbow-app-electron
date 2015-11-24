@@ -71,12 +71,6 @@ angular.module('rainbowApp')
       }, function() {
         console.log('error');
       });
-
-
-      // rainbow.onMessage(function(message) {
-      //
-      // });
-
     }
 
     this.executeFunction = function(methodName, params) {

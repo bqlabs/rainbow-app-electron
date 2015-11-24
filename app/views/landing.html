@@ -8,14 +8,17 @@
   </div>
   <h2>Functions</h2>
   <div class="functions" ng-repeat="function in landing.functions">
+    <hr>
     <p>{{function.name}}</p>
-    <div class="args" ng-repeat="(arg, value) in function.args as parent">
+    <hr>
+    <div class="args" ng-repeat="(arg, content) in function.args">
       <label for="name">{{arg}}</label>
-      <p>
-        {{landing.getType(function.args[arg])}}
-      </p>
-      <div data-ng-include="'views/methodsArguments.html'">
-      </div>
+      <p>type:{{content.type}}</p>
+      <p>value:{{content.value}}</p>
+      <!-- <input data-ng-if="content.type === 'Number'" type="number" name="name" ng-model="content.value">
+      <input data-ng-if="content.type === 'String'" type="text" name="name" ng-model="content.value">
+      <input data-ng-if="content.type === 'Boolean'" type="checkbox" name="name" ng-model="content.value"> -->
+      <div data-ng-include="'views/methodsArguments.html'"></div>
     </div>
     <button type="button" name="button" ng-click="landing.executeFunction(function.name, function.args)">execute</button>
   </div>

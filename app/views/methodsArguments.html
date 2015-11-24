@@ -1,13 +1,15 @@
-<input data-ng-if="landing.getType(parent[arg])=== 'number'" type="number" name="name" ng-model="parent[arg]">
-<input data-ng-if="landing.getType(parent[arg]) === 'string'" type="text" name="name" ng-model="parent[arg]">
-<input data-ng-if="landing.getType(parent[arg]) === 'boolean'" type="checkbox" name="name" ng-model="parent[arg]">
-<div data-ng-if="landing.getType(parent[arg]) === 'object'">
-  <div ng-repeat="(arg, value) in parent[arg] as parent">
+<input data-ng-if="content.type === 'Number'" type="number" name="name" ng-model="content.value">
+<input data-ng-if="content.type === 'String'" type="text" name="name" ng-model="content.value">
+<input data-ng-if="content.type === 'Boolean'" type="checkbox" name="name" ng-model="content.value">
+<div data-ng-if="content.type === 'Object'">
+  <div class="args" ng-repeat="(arg, content) in content.value">
     <label for="name">{{arg}}</label>
-    <p>
-      {{landing.getType(value)}}
-    </p>
-    <div data-ng-include="'views/methodsArguments.html'">
-    </div>
+    <p>type:{{content.type}}</p>
+    <p>value:{{content.value}}</p>
+    <!-- <input data-ng-if="content.type === 'Number'" type="number" name="name" ng-model="content.value">
+    <input data-ng-if="content.type === 'String'" type="text" name="name" ng-model="content.value">
+    <input data-ng-if="content.type === 'Boolean'" type="checkbox" name="name" ng-model="content.value"> -->
+    <div data-ng-include="'views/methodsArguments.html'"></div>
   </div>
 </div>
+<hr>
