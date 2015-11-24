@@ -2,31 +2,25 @@
 
 /**
  * @ngdoc overview
- * @name rainbowClientApp
+ * @name bitbloqOffline
  * @description
- * # rainbowClientApp
+ * # bitbloq-offline
  *
  * Main module of the application.
  */
 angular
-  .module('rainbowClientApp', [
-    'ngMessages',
-    'ngRoute',
-    'ngSanitize'
+  .module('rainbowApp', [
+    'ngRoute'
+  ]).config(['$routeProvider',
+    function($routeProvider) {
+      console.log('start');
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/landing.html',
+          controller: 'LandingCtrl'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    }
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-          templateUrl: 'views/main.html',
-          controller: 'WebsocketsCtrl',
-          controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });

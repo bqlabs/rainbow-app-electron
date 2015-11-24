@@ -1,0 +1,22 @@
+<div data-ng-controller="LandingCtrl as landing">
+  <button type="button" name="button" data-ng-click="landing.refreshServices()">Refresh services</button>
+  <h2>Servidores</h2>
+  <div class="" ng-repeat="(key, service) in landing.services" ng-if="landing.showService(service)">
+    <h4>Ip:</h4>
+    <p>{{key}}:{{service.port}}</p>
+    <button type="button" name="button" ng-click="landing.connect(key, service)">Connect</button>
+  </div>
+  <h2>Functions</h2>
+  <div class="functions" ng-repeat="function in landing.functions">
+    <p>{{function.name}}</p>
+    <div class="args" ng-repeat="(arg, value) in function.args as parent">
+      <label for="name">{{arg}}</label>
+      <p>
+        {{landing.getType(function.args[arg])}}
+      </p>
+      <div data-ng-include="'views/methodsArguments.html'">
+      </div>
+    </div>
+    <button type="button" name="button" ng-click="landing.executeFunction(function.name, function.args)">execute</button>
+  </div>
+</div>

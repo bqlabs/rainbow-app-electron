@@ -1,8 +1,0 @@
-{
-  "name": "Rainbow",
-  "version": "0.0.0",
-  "main": "main.js",
-  "dependencies": {
-    "jquery": "^2.1.4"
-  }
-}
