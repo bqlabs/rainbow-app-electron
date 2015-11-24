@@ -12,9 +12,7 @@
     <h3>Function Name:{{function.name}}</h3>
     <hr>
     <div class="args" ng-repeat="(arg, content) in function.args">
-      <label for="name">{{arg}}</label>
-      <p>type:{{content.type}}</p>
-      <p>value:{{content.value}}</p>
+      <label for="name">Argument name: {{arg}}</label>
       <div data-ng-include="'views/methodsArguments.html'"></div>
     </div>
     <button type="button" name="button" ng-click="landing.executeFunction(function.name, function.args)">execute</button>

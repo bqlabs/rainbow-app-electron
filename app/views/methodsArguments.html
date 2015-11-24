@@ -3,9 +3,7 @@
 <input data-ng-if="content.type === 'Boolean'" type="checkbox" name="name" ng-model="content.value">
 <div data-ng-if="content.type === 'Object'">
   <div class="args" ng-repeat="(arg, content) in content.value">
-    <label for="name">{{arg}}</label>
-    <p>type:{{content.type}}</p>
-    <p>value:{{content.value}}</p>
+    <label for="name">Argument Name: {{arg}} <i>it's a Object</i></label>
     <div data-ng-include="'views/methodsArguments.html'"></div>
   </div>
 </div>
