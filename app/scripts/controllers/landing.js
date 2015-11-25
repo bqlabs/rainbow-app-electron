@@ -17,6 +17,7 @@ angular.module('rainbowApp')
     var landing = this;
     this.services = {};
 
+
     this.getType = function(item) {
       return typeof(item);
     }
@@ -74,8 +75,13 @@ angular.module('rainbowApp')
     }
 
     this.executeFunction = function(methodName, params) {
-      console.log('executing function', methodName, params);
-      rainbow.executeFunction(methodName, params).then(function(response) {
+      // Convert params
+      var args = {};
+      for (var key in params) {
+          args[key] = params[key].value
+      }
+      console.log('executing function', methodName, args);
+      rainbow.executeFunction(methodName, args).then(function(response) {
         console.log('success execute function: ' + methodName);
         console.log(response);
       }, function() {
