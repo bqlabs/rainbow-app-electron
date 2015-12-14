@@ -4,6 +4,8 @@
   "description": "",
   "dependencies": {
     "angular": "~1.4.7",
-    "angular-route": "~1.4.7"
+    "angular-route": "~1.4.7",
+    "q": "v1.0.1",
+    "rainbow-client-sdk": "develop"
   }
 }

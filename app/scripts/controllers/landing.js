@@ -8,9 +8,11 @@
  * Controller of the bitbloqOffline
  */
 angular.module('rainbowApp')
-  .controller('LandingCtrl', function($scope, rainbow) {
+  .controller('LandingCtrl', function($scope, $window) {
 
     console.log('landing ctrl');
+    console.log($window.rainbow);
+    var rainbow = $window.rainbow;
     var mdns = require('mdns-js');
 
 
@@ -68,6 +70,7 @@ angular.module('rainbowApp')
           console.log('getFunctions');
           console.log(response);
           landing.functions = response;
+          $scope.$apply();
         });
       }, function() {
         console.log('error');
@@ -78,7 +81,7 @@ angular.module('rainbowApp')
       // Convert params
       var args = {};
       for (var key in params) {
-          args[key] = params[key].value
+        args[key] = params[key].value
       }
       console.log('executing function', methodName, args);
       rainbow.executeFunction(methodName, args).then(function(response) {
